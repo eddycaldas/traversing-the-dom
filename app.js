@@ -23,7 +23,7 @@ val = list.childNodes[3].nodeType;
 // get childern element nodes ---->
 val = list.children;
 val = list.children[1];
-list.children[1].textContent = 'Hellooooo';
+// list.children[1].textContent = 'Hellooooo';
 
 // children of children
 list.children[3].children[0].id = 'test-link';
@@ -84,5 +84,47 @@ link.innerHTML = '<i class="fa fa-remove"></i>';
 // append link to li
 li.appendChild(link);
 
-
 console.log(li);
+
+// REPLACEING AND REMOVING ELEMENTS---------------------->
+
+// -------// replace element
+// create element
+const newHeading = document.createElement('h2');
+// add id
+newHeading.id = 'task-title';
+// new text node
+newHeading.appendChild(document.createTextNode('Task List...'));
+// get old heading
+const oldHeading = document.getElementById('task-title');
+// parent
+const cardAction = document.querySelector('.card-action');
+// repalce
+cardAction.replaceChild(newHeading, oldHeading);
+
+console.log(newHeading);
+
+// -----------// remove elements
+const lis2 = document.querySelectorAll('li');
+const list3 = document.querySelector('ul');
+
+// remove list item
+lis2[0].remove();
+// remove child element
+list3.removeChild(lis2[3]);
+
+// CLASS AND ATTRIBUTES
+const firstLi = document.querySelector('li:first-child');
+console.log(firstLi.children[0]);
+const link2 = firstLi.children[0];
+
+// classes
+val = link2.className;
+val = link2.classList;
+val = link2.classList[0];
+link.classList.add('test');
+link.classList.remove('test');
+val = link;
+
+
+console.log(val);
